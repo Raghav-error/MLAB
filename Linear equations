@@ -1,0 +1,69 @@
+1 linear equations 
+#include<stdio.h>
+
+#include<time.h>
+
+#define max 20
+
+int LinSearch(int,int[],int);
+
+int main()
+
+{
+
+int n,i,a[max],k,pos;
+
+clock_t begin,end;
+
+printf("Enter the number of elements \n");
+
+scanf("%d",&n);
+
+printf("Enter the elements of an array in any order \n");
+
+for(i=0;i<n;i++)
+
+scanf("%d",&a[i]);
+
+printf("Enter the element to be searched\n");
+
+scanf("%d", &k);
+
+begin=clock();
+
+pos=LinSearch(n,a,k);
+
+end=clock();
+
+if(pos==-1)
+
+printf("Unsuccessful search \n");
+
+else
+
+printf("Element %d is found at position %d\n", k, pos+1);
+
+printf("Time taken is %lf CPU cycles\n",(double)(end-begin)/CLK_TCK);
+
+return 0;
+
+}
+
+int LinSearch(int n, int a[], int k)
+
+{
+
+sleep(1);
+
+if(n<0)
+
+return -1;
+
+if(k==a[n-1])
+return (n-1);
+
+else
+
+return LinSearch(n-1,a,k);
+
+}
